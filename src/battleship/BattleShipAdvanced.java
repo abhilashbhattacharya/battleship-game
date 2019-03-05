@@ -10,6 +10,9 @@ public class BattleShipAdvanced {
 	private static final String shipThere = "S";
 	private static final String shipNotThere = "N";
 	private static final Integer shipPoints = 10;
+	private static final Integer boardSize = 6;
+	//private static final Integer shipPoints = 10;
+	 
 
 	public static void main(String [] args){
 		
@@ -73,8 +76,8 @@ public class BattleShipAdvanced {
 	private static void populateBoard(LinkedHashMap<Integer, LinkedList<String>> board2) {
 		// TODO Auto-generated method stub
 		
-		for(int i=0;i<5; i++) {
-			LinkedList<String> list = new LinkedList<String>(Collections.nCopies(5, "*"));
+		for(int i=0;i<boardSize; i++) {
+			LinkedList<String> list = new LinkedList<String>(Collections.nCopies(boardSize, "*"));
 			board2.put(i+1, list);
 			}
 	}
@@ -82,9 +85,14 @@ public class BattleShipAdvanced {
 	private static void showBoard(LinkedHashMap<Integer, LinkedList<String>> board){
 
 	// TODO Auto-generated method stub
-	for(int i=1;i<6; i++) {
+		System.out.print("\t"+" ");
+		for(int i=1;i<boardSize+1; i++) {
+		System.out.print(i+"  ");
+		}
+		System.out.print("\n");
+	for(int i=1;i<boardSize+1; i++) {
 
-	System.out.println(i +" "+board.get(i));
+	System.out.println(i +"\t"+board.get(i));
 	}
 	}
 
