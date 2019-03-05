@@ -10,7 +10,7 @@ public class BattleShipAdvanced {
 	private static final String shipThere = "S";
 	private static final String shipNotThere = "N";
 	private static final Integer shipPoints = 10;
-	private static final Integer boardSize = 6;
+	private static Integer boardSize = 6;
 	//private static final Integer shipPoints = 10;
 	 
 
@@ -18,25 +18,33 @@ public class BattleShipAdvanced {
 		
 		 LinkedHashMap<Integer, LinkedList<String>> board= new LinkedHashMap<>();
 		 LinkedHashMap<Integer, LinkedList<String>> playBoard= new LinkedHashMap<>();
-
+		 
+		 Scanner scan = new Scanner(System.in);
+		 System.out.print("Enter the board size : ");
+		 int size = scan.nextInt();
+		 if(size>=5){
+			 boardSize = size;
+		 }
+		 
 		populateBoard(board);
 		populateBoard(playBoard);
 		showBoard(board);
-		populateShips(new Scanner(System.in), playBoard);
+		populateShips(scan, playBoard);
 		//showBoard(board);
 		//showBoard(playBoard);
-		play(board,playBoard);
+		play(board,playBoard,scan);
 		showBoard(board);
 		showBoard(playBoard);
+		scan.close();
 	}
 
 	private static void play(LinkedHashMap<Integer, LinkedList<String>> board,
-			LinkedHashMap<Integer, LinkedList<String>> playBoard) {
+			LinkedHashMap<Integer, LinkedList<String>> playBoard, Scanner scan) {
 		// TODO Auto-generated method stub
 		System.out.println("You Get 15 chances to play");
 		int counter = 0;
 		for(int i=0;i<15;i++){
-			counter+=shoot(new Scanner(System.in),board,playBoard);
+			counter+=shoot(scan,board,playBoard);
 			showBoard(board);
 			if(counter==10) break;
 		}
