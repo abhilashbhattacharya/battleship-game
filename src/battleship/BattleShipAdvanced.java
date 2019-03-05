@@ -30,7 +30,7 @@ public class BattleShipAdvanced {
 	private static void play(LinkedHashMap<Integer, LinkedList<String>> board,
 			LinkedHashMap<Integer, LinkedList<String>> playBoard) {
 		// TODO Auto-generated method stub
-		System.out.println("You Get 5 chances to play");
+		System.out.println("You Get 15 chances to play");
 		int counter = 0;
 		for(int i=0;i<15;i++){
 			counter+=shoot(new Scanner(System.in),board,playBoard);
@@ -96,7 +96,7 @@ public class BattleShipAdvanced {
 	int counter = 0 ;
 	do {
 
-	System.out.println("Place your ship no "+counter+1+"");
+	//System.out.println("Place your ship no "+counter+1+"");
 	System.out.println("Adding ship of size: "+ships[counter]);
 	System.out.print("Row : ");
 	row=scanner.nextInt();
