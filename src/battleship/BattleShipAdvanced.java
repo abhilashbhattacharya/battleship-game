@@ -38,6 +38,7 @@ public class BattleShipAdvanced {
 		for(int i=0;i<15;i++){
 			counter+=shoot(new Scanner(System.in),board,playBoard);
 			showBoard(board);
+			if(counter==10) break;
 		}
 		if(counter<shipPoints){
 			System.out.println("YOU LOSE");
